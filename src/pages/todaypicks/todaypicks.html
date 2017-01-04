@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Comfy Bets</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header class="text-center page-header">
+      Today's Tips
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card *ngIf="!gamesLength">
+    <ion-card-content>
+      Games not availabe. Tips loading...
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let game of todaygames">
+    <ion-card-content>
+      <p class="competition">{{game.data.country}}</p>
+      <p class="match">{{game.data.hometeam}} vs {{game.data.awayteam}}</p>
+      <p class="prediction">Pick: {{game.data.prediction}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Feedback and Inquiries
+    </ion-card-header>
+    <ion-card-content>
+        <a class="btn-mail" href="mailto:comfyannex@gmail.com" target="_top">Send Email</a>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
